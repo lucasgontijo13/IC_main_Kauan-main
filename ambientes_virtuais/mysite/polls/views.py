@@ -1,20 +1,29 @@
+
+import logging
 from django.shortcuts import render, redirect
 from .forms import ClienteForm
 
+logger = logging.getLogger('django')
 
 def registro_view(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('sucesso')  # Redireciona para a página de sucesso após o registro
+            logger.info('Cliente salvo com sucesso!')
+            return redirect('index')  # Redireciona para a página de sucesso após o registro
+        else:
+            logger.error('Formulário inválido: %s', form.errors)
     else:
         form = ClienteForm()
     
     return render(request, 'register.html', {'form': form})
 
-def sucesso_view(request):
-    return render(request, 'index.html')
+def register(request):
+    form = ClienteForm()
+    return render(request, 'register.html', {'form': form})
+
+
 
 
 def index(request):

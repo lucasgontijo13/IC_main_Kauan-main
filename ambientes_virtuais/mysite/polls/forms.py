@@ -8,8 +8,6 @@ class ClienteForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        nome_completo = cleaned_data.get('nome_completo')
-        if nome_completo:
-            # Aqui você pode realizar validações adicionais se necessário
-            pass
+        # Realizar validações adicionais se necessário
         return cleaned_data
+    
