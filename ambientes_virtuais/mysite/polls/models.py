@@ -16,11 +16,15 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     cnpj = models.CharField(max_length=14, default='00000000000000')
-    data_criacao = models.DateTimeField(default=timezone.now)  # Adicionar valor padrão
-    data_atualizacao = models.DateTimeField(auto_now=True)  # Adicionar data e hora de atualização
+    data_criacao = models.DateTimeField(default=timezone.now)  # Adiciona a data e hora de criação
+    data_login = models.DateTimeField(null=True, blank=True)  # Data e hora do último login
 
     def __str__(self):
         return self.nome
+
+    def fazer_login(self):
+        self.data_login = timezone.now()
+        self.save()
 
 class Login(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)  # Relacionamento com Cliente
