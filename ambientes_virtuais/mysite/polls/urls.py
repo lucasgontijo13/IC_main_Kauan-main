@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
     path('', views.registro_view, name='register'),  # Use 'registro_view' para a página de registro
     path('401/', views.error_401, name='error_401'),
     path('404/', views.error_404, name='error_404'),
