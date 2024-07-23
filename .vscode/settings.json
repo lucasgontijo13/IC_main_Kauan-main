@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.env.windows": {
+        "VIRTUAL_ENV": "C:\\Users\\Faculdade\\Desktop\\IC_main_Kauan-main\\ambientes_virtuais",
+        "PATH": "C:\\Users\\Faculdade\\Desktop\\IC_main_Kauan-main\\ambientes_virtuais\\Scripts;${env:PATH}"
+    },
+    "terminal.integrated.cwd": "C:\\Users\\Faculdade\\Desktop\\IC_main_Kauan-main\\ambientes_virtuais\\mysite"
+
+}
